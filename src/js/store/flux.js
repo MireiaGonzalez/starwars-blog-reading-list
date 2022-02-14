@@ -1,13 +1,30 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			starwarsPeople: []
+			starwarsPeople: [],
+			peopleNextPage: "",
+			characterInfo: [],
+			starwarsPlanets: [],
+			planetsNextPage: "",
+			planetsInfo: [],
+			starwarsVehicles: [],
+			vehiclesNextPage: "",
+			vehiclesInfo: []
+
 		},
 		actions: {
-			setStarwarsPeople: (peopleList) => {
-				setStore({starwarsPeople: peopleList})
+			setStarwarsPeople: (peopleData) => {
+				const allCharacters = [...getStore().starwarsPeople];
+				setStore({starwarsPeople: allCharacters.concat(peopleData), peopleNextPage: peopleData.next})
+			},
+			setStarwarsPlanets: (planetsData) => {
+				const allPlanets = [...getStore().starwarsPlanets];
+				setStore({starwarsPlanets: allPlanets.concat(planetsData), planetsNextPage: planetsData.next})
+			},
+			setStarwarsVehicles: (vehiclesData) => {
+				const allVehicles = [...getStore().starwarsVehicles];
+				setStore({starwarsVehicles: allVehicles.concat(vehiclesData), vehiclesNextPage: vehiclesData.next})
 			}
-			
 		}
 	};
 };

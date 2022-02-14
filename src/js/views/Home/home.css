@@ -1,0 +1,12 @@
+div.scrollmenu {
+    overflow: auto;
+    white-space: nowrap;
+    outline: black solid 5px;
+}
+.wrapper{
+    min-height: 100%;
+    margin-bottom: -50px;
+ 
+}
+
+
