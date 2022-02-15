@@ -31,7 +31,7 @@ const Home = () => {
       const vehiclesRes = await getAllVehicles();
       const vehiclesJson = await vehiclesRes.json();
       console.log(vehiclesJson);
-      actions.setStarwarsVehicles(vehiclesJson);
+      actions.setStarwarsVehicles(vehiclesJson.results);
     } catch (err) {
       console.log(err);
     } finally {
@@ -43,13 +43,14 @@ const Home = () => {
     getEverything();
   }, []);
 
+  console.log(store.starwarsVehicles)
   return (
     <div className="container-fluid wrapper">
       <div className="content">
         {loading ? (
           <>
             <Spinner />
-            <div className="d-flex justify-content-center mt-5">
+            <div className="d-flex justify-content-center mt-3">
               <h1>We are loading everything... It's almost done!</h1>
             </div>
           </>
@@ -57,7 +58,7 @@ const Home = () => {
           <>
             <h1 className="home-title mb-md-5 mb-sm-4">CHARACTERS</h1>
             <div className="people-scrollmenu d-flex justify-content-center">
-              <div className="scrollmenu col-md-11 col-sm-12 col-lg-11 col-xs-12">
+              <div className="scrollmenu col-md-11 col-sm-12 col-lg-11 col-xs-12 mb-4">
                 {store.starwarsPeople.map((character, index) => (
                   <Card
                     key={character.uid}
@@ -70,7 +71,7 @@ const Home = () => {
             </div>
             <h1 className="home-title mb-md-5 mb-sm-4 mt-5">PLANETS</h1>
             <div className="planets-scrollmenu d-flex justify-content-center">
-              <div className="scrollmenu col-md-11 col-sm-12">
+              <div className="scrollmenu col-md-11 col-sm-12 mb-4">
                 {store.starwarsPlanets.map((planet, index) => {
                   if (planet.name !== "Tatooine") {
                     return (
@@ -96,9 +97,17 @@ const Home = () => {
                 })}
               </div>
             </div>
-            <div className="vehicles-scrollmenu d-flex justify-content-center">
-              <div className="scrollmenu col-md-11 col-sm-12 col-lg-11 col-xs-12">
-                
+            <h1 className="home-title mb-md-5 mb-sm-4 mt-5">VEHICLES</h1>
+            <div className="people-scrollmenu d-flex justify-content-center">
+              <div className="scrollmenu col-md-11 col-sm-12 col-lg-11 col-xs-12 mb-4">
+              {store.starwarsVehicles.map((vehicle, index) => (
+                  <Card
+                    key={vehicle.uid}
+                    title={vehicle.name}
+                    id={index}
+                    imageSrc={`https://starwars-visualguide.com/assets/img/vehicles/${store.starwarsVehicles[index].uid}.jpg`}
+                  />
+                ))}
               </div>
             </div>
           </>
