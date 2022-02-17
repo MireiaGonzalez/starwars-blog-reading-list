@@ -1,6 +1,12 @@
 import React, { useEffect, useContext, useState } from "react";
 import "./home.css";
 import { Context } from "../../store/appContext.js";
+
+//Images
+import starwarsImage from "../../../img/starwars.jpg"
+import starwarsPlanets from "../../../img/starwars-planets.jpg"
+import starwarsVehicles from "../../../img/starwars-vehicles.jpg"
+
 //Service
 import {
   getAllPeople,
@@ -10,6 +16,7 @@ import {
 
 //Component
 import Card from "../../component/Card/Card.jsx";
+import SeeMoreCard from "../../component/SeeMoreCard/SeeMoreCard.jsx";
 import Spinner from "../../component/Spinner/Spinner.jsx";
 
 const Home = () => {
@@ -56,7 +63,9 @@ const Home = () => {
           </>
         ) : (
           <>
-            <h1 className="home-title mb-md-5 mb-sm-4">CHARACTERS</h1>
+     
+            <h1 className="home-title mt-md-5 mb-md-4 mt-sm-4 mb-sm-4 d-flex justify-content-center">CHARACTERS</h1>
+     
             <div className="people-scrollmenu d-flex justify-content-center">
               <div className="scrollmenu col-md-11 col-sm-12 col-lg-11 col-xs-12 mb-4">
                 {store.starwarsPeople.map((character, index) => (
@@ -64,12 +73,14 @@ const Home = () => {
                     key={character.uid}
                     title={character.name}
                     id={index}
+                    buttonText="Details"
                     imageSrc={`https://starwars-visualguide.com/assets/img/characters/${store.starwarsPeople[index].uid}.jpg`}
                   />
                 ))}
+                <SeeMoreCard buttonText="Go to Characters" title="SEE ALL CHARACTERS" imageSrc={starwarsImage} />
               </div>
             </div>
-            <h1 className="home-title mb-md-5 mb-sm-4 mt-5">PLANETS</h1>
+            <h1 className="home-title mt-md-5 mb-md-4 mt-sm-4 mb-sm-4 d-flex justify-content-center">PLANETS</h1>
             <div className="planets-scrollmenu d-flex justify-content-center">
               <div className="scrollmenu col-md-11 col-sm-12 mb-4">
                 {store.starwarsPlanets.map((planet, index) => {
@@ -79,6 +90,7 @@ const Home = () => {
                         key={planet.uid}
                         title={planet.name}
                         id={index}
+                        buttonText="Details"
                         imageSrc={`https://starwars-visualguide.com/assets/img/planets/${store.starwarsPlanets[index].uid}.jpg`}
                       />
                     );
@@ -88,6 +100,7 @@ const Home = () => {
                         key={planet.uid}
                         title={planet.name}
                         id={index}
+                        buttonText="Details"
                         imageSrc={
                           "https://upload.wikimedia.org/wikipedia/en/6/6d/Tatooine_%28fictional_desert_planet%29.jpg"
                         }
@@ -95,9 +108,10 @@ const Home = () => {
                     );
                   }
                 })}
+                <SeeMoreCard buttonText="Go to Planets" title="SEE ALL PLANETS" imageSrc={starwarsPlanets} />
               </div>
             </div>
-            <h1 className="home-title mb-md-5 mb-sm-4 mt-5">VEHICLES</h1>
+            <h1 className="home-title mt-md-5 mb-md-4 mt-sm-4 mb-sm-4 d-flex justify-content-center">VEHICLES</h1>
             <div className="people-scrollmenu d-flex justify-content-center">
               <div className="scrollmenu col-md-11 col-sm-12 col-lg-11 col-xs-12 mb-4">
               {store.starwarsVehicles.map((vehicle, index) => (
@@ -105,9 +119,11 @@ const Home = () => {
                     key={vehicle.uid}
                     title={vehicle.name}
                     id={index}
+                    buttonText="Details"
                     imageSrc={`https://starwars-visualguide.com/assets/img/vehicles/${store.starwarsVehicles[index].uid}.jpg`}
                   />
-                ))}
+              ))}
+              <SeeMoreCard buttonText="Go to Vehicles" title="SEE ALL VEHICLES" imageSrc={starwarsVehicles} />
               </div>
             </div>
           </>

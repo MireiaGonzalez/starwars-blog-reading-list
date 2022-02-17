@@ -1,12 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
 div.scrollmenu {
     overflow: auto;
     white-space: nowrap;
-    outline: black solid 5px;
+    outline: rgb(39,110,253) solid 2px;
+    border-radius: 0.1%;
+    background-image: url("https://i.pinimg.com/originals/5b/12/9d/5b129de44c25ee014c31ad03590458d8.jpg");
 }
 .wrapper{
     min-height: 100%;
     margin-bottom: -50px;
- 
+}
+
+.home-title{
+    font-family: 'Bangers', cursive;
+    font-size:xxx-large;
 }
 
 
