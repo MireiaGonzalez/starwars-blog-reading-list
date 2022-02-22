@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import "./see-more-card.css"
 
@@ -11,9 +12,11 @@ const SeeMoreCard = (props) => {
         
       </div>
       <div className="card-footer d-flex justify-content-center p-3">
+        <Link to={props.link}>
         <a href="#" className="btn btn-primary p-2">
           {props.buttonText}
         </a>
+        </Link>
       </div>
     </div>
   );
@@ -22,7 +25,8 @@ const SeeMoreCard = (props) => {
 SeeMoreCard.propTypes = {
     id: PropTypes.string,
     imageSrc: PropTypes.string,
-    buttonText: PropTypes.string
+    buttonText: PropTypes.string,
+    link: PropTypes.string
 }
 
 export default SeeMoreCard;

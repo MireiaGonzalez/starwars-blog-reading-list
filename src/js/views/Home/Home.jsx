@@ -77,7 +77,7 @@ const Home = () => {
                     imageSrc={`https://starwars-visualguide.com/assets/img/characters/${store.starwarsPeople[index].uid}.jpg`}
                   />
                 ))}
-                <SeeMoreCard buttonText="Go to Characters" title="SEE ALL CHARACTERS" imageSrc={starwarsImage} />
+                <SeeMoreCard buttonText="Go to Characters" title="SEE ALL CHARACTERS" imageSrc={starwarsImage} link="/characters"/>
               </div>
             </div>
             <h1 className="home-title mt-md-5 mb-md-4 mt-sm-4 mb-sm-4 d-flex justify-content-center">PLANETS</h1>
@@ -108,7 +108,7 @@ const Home = () => {
                     );
                   }
                 })}
-                <SeeMoreCard buttonText="Go to Planets" title="SEE ALL PLANETS" imageSrc={starwarsPlanets} />
+                <SeeMoreCard buttonText="Go to Planets" title="SEE ALL PLANETS" imageSrc={starwarsPlanets} link="/planets"/>
               </div>
             </div>
             <h1 className="home-title mt-md-5 mb-md-4 mt-sm-4 mb-sm-4 d-flex justify-content-center">VEHICLES</h1>
@@ -123,7 +123,7 @@ const Home = () => {
                     imageSrc={`https://starwars-visualguide.com/assets/img/vehicles/${store.starwarsVehicles[index].uid}.jpg`}
                   />
               ))}
-              <SeeMoreCard buttonText="Go to Vehicles" title="SEE ALL VEHICLES" imageSrc={starwarsVehicles} />
+              <SeeMoreCard buttonText="Go to Vehicles" title="SEE ALL VEHICLES" imageSrc={starwarsVehicles} link="/vehicles"/>
               </div>
             </div>
           </>
