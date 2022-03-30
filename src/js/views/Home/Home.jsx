@@ -56,14 +56,10 @@ const Home = () => {
       <div className="content">
         {loading ? (
           <>
-            <Spinner />
-            <div className="d-flex justify-content-center mt-3">
-              <h1>We are loading everything... It's almost done!</h1>
-            </div>
+            <Spinner />   
           </>
         ) : (
           <>
-     
             <h1 className="home-title mt-md-5 mb-md-4 mt-sm-4 mb-sm-4 d-flex justify-content-center">CHARACTERS</h1>
      
             <div className="people-scrollmenu d-flex justify-content-center">
@@ -80,7 +76,7 @@ const Home = () => {
                 <SeeMoreCard buttonText="Go to Characters" title="SEE ALL CHARACTERS" imageSrc={starwarsImage} link="/characters"/>
               </div>
             </div>
-            <h1 className="home-title mt-md-5 mb-md-4 mt-sm-4 mb-sm-4 d-flex justify-content-center">PLANETS</h1>
+            <h1 className="home-title home-title-not-first mt-md-5 mb-md-4 mt-sm-4 mb-sm-4 d-flex justify-content-center">PLANETS</h1>
             <div className="planets-scrollmenu d-flex justify-content-center">
               <div className="scrollmenu col-md-11 col-sm-12 mb-4">
                 {store.starwarsPlanets.map((planet, index) => {
@@ -111,7 +107,7 @@ const Home = () => {
                 <SeeMoreCard buttonText="Go to Planets" title="SEE ALL PLANETS" imageSrc={starwarsPlanets} link="/planets"/>
               </div>
             </div>
-            <h1 className="home-title mt-md-5 mb-md-4 mt-sm-4 mb-sm-4 d-flex justify-content-center">VEHICLES</h1>
+            <h1 className="home-title home-title-not-first mt-md-5 mb-md-4 mt-sm-4 mb-sm-4 d-flex justify-content-center">VEHICLES</h1>
             <div className="people-scrollmenu d-flex justify-content-center">
               <div className="scrollmenu col-md-11 col-sm-12 col-lg-11 col-xs-12 mb-4">
               {store.starwarsVehicles.map((vehicle, index) => (

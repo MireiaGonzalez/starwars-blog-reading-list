@@ -1,12 +1,12 @@
-import React, { Component } from "react";
+import React from "react";
 import "./footer.css"
 
 
 export const Footer = () => (
 	<>
-		<footer id="footer">
-			<h1>hello</h1>
-
+		<div id="footer-separation"></div>
+		<footer id="footer" className="text-white d-flex justify-content-center align-items-center">
+			<span>Star Wars Reading List - by Mireia Gonzàlez</span>
 		</footer>
 	</>
 );

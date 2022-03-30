@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+nav{
+    margin-bottom: 4rem;
+}
+.navbar-brand{
+    font-family: 'Bangers', cursive;
+    font-size: xx-large;
+    border: 1px solid black;
+    border-radius: 3rem;
+    background-image: url("https://i.pinimg.com/originals/40/c7/12/40c712e5f3833bc38dbe1213da27069e.jpg");
+    margin-right: 3rem;
+}
+
+.navbar-element{
+    margin-right: 5rem;
+}
+.navbar-item:hover{
+    background-color: black;
+}
