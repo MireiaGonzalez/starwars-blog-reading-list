@@ -1,21 +1,19 @@
-const URL = "https://www.swapi.tech/api";
-
-export const getAllPeople = () => {
-    const url = URL + "/people";
-    return fetch(url);
+export const getAllPeople = (url) => {
+    const URL = url + "/people";
+    return fetch(URL);
 }
 
-export const getPeopleInfo = (uid) => {
-    const url = URL+"/people";
-    return fetch(`${url}${uid}`);
+export const getPeopleInfo = (url, uid) => {
+    const URL = url+"/people";
+    return fetch(`${URL}${uid}`);
 }
 
-export const getAllPlanets = () => {
-    const url = URL + "/planets";
-    return fetch(url);
+export const getAllPlanets = (url) => {
+    const URL = url + "/planets";
+    return fetch(URL);
 }
 
-export const getAllVehicles = () => {
-    const url = URL + "/vehicles";
-    return fetch(url);
+export const getAllVehicles = (url) => {
+    const URL = url + "/vehicles";
+    return fetch(URL);
 }

@@ -3,9 +3,9 @@ import "./home.css";
 import { Context } from "../../store/appContext.js";
 
 //Images
-import starwarsImage from "../../../img/starwars.jpg"
-import starwarsPlanets from "../../../img/starwars-planets.jpg"
-import starwarsVehicles from "../../../img/starwars-vehicles.jpg"
+import starwarsImage from "../../../img/starwars.jpg";
+import starwarsPlanets from "../../../img/starwars-planets.jpg";
+import starwarsVehicles from "../../../img/starwars-vehicles.jpg";
 
 //Service
 import {
@@ -14,10 +14,13 @@ import {
   getAllVehicles,
 } from "../../service/starwars.js";
 
-//Component
+//Components
 import Card from "../../component/Card/Card.jsx";
 import SeeMoreCard from "../../component/SeeMoreCard/SeeMoreCard.jsx";
 import Spinner from "../../component/Spinner/Spinner.jsx";
+
+//URL
+const URL = "https://www.swapi.tech/api";
 
 const Home = () => {
   const { store, actions } = useContext(Context);
@@ -27,18 +30,15 @@ const Home = () => {
   const getEverything = async () => {
     try {
       setLoading(true);
-      const peopleRes = await getAllPeople();
+      const peopleRes = await getAllPeople(URL);
       const peopleJson = await peopleRes.json();
-      console.log(peopleJson);
-      actions.setStarwarsPeople(peopleJson.results);
-      const planetsRes = await getAllPlanets();
+      actions.setStarwarsPeople(peopleJson);
+      const planetsRes = await getAllPlanets(URL);
       const planetsJson = await planetsRes.json();
-      console.log(planetsJson);
-      actions.setStarwarsPlanets(planetsJson.results);
-      const vehiclesRes = await getAllVehicles();
+      actions.setStarwarsPlanets(planetsJson);
+      const vehiclesRes = await getAllVehicles(URL);
       const vehiclesJson = await vehiclesRes.json();
-      console.log(vehiclesJson);
-      actions.setStarwarsVehicles(vehiclesJson.results);
+      actions.setStarwarsVehicles(vehiclesJson);
     } catch (err) {
       console.log(err);
     } finally {
@@ -50,22 +50,23 @@ const Home = () => {
     getEverything();
   }, []);
 
-  console.log(store.starwarsVehicles)
+  console.log(store.starwarsVehicles);
   return (
     <div className="container-fluid wrapper">
       <div className="content">
         {loading ? (
-          <>
-            <Spinner />   
-          </>
+          <Spinner />
         ) : (
           <>
-            <h1 className="home-title mt-md-5 mb-md-4 mt-sm-4 mb-sm-4 d-flex justify-content-center">CHARACTERS</h1>
-     
+            <h1 className="home-title mt-md-5 mb-md-4 mt-sm-4 mb-sm-4 d-flex justify-content-center">
+              CHARACTERS
+            </h1>
+
             <div className="people-scrollmenu d-flex justify-content-center">
               <div className="scrollmenu col-md-11 col-sm-12 col-lg-11 col-xs-12 mb-4">
                 {store.starwarsPeople.map((character, index) => (
                   <Card
+                  cardType="card-starwars-home"
                     key={character.uid}
                     title={character.name}
                     id={index}
@@ -73,16 +74,24 @@ const Home = () => {
                     imageSrc={`https://starwars-visualguide.com/assets/img/characters/${store.starwarsPeople[index].uid}.jpg`}
                   />
                 ))}
-                <SeeMoreCard buttonText="Go to Characters" title="SEE ALL CHARACTERS" imageSrc={starwarsImage} link="/characters"/>
+                <SeeMoreCard
+                  buttonText="Go to Characters"
+                  title="SEE ALL CHARACTERS"
+                  imageSrc={starwarsImage}
+                  link="/characters"
+                />
               </div>
             </div>
-            <h1 className="home-title home-title-not-first mt-md-5 mb-md-4 mt-sm-4 mb-sm-4 d-flex justify-content-center">PLANETS</h1>
+            <h1 className="home-title home-title-not-first mt-md-5 mb-md-4 mt-sm-4 mb-sm-4 d-flex justify-content-center">
+              PLANETS
+            </h1>
             <div className="planets-scrollmenu d-flex justify-content-center">
               <div className="scrollmenu col-md-11 col-sm-12 mb-4">
                 {store.starwarsPlanets.map((planet, index) => {
                   if (planet.name !== "Tatooine") {
                     return (
                       <Card
+                      cardType="card-starwars-home"
                         key={planet.uid}
                         title={planet.name}
                         id={index}
@@ -93,6 +102,7 @@ const Home = () => {
                   } else {
                     return (
                       <Card
+                      cardType="card-starwars-home"
                         key={planet.uid}
                         title={planet.name}
                         id={index}
@@ -104,22 +114,35 @@ const Home = () => {
                     );
                   }
                 })}
-                <SeeMoreCard buttonText="Go to Planets" title="SEE ALL PLANETS" imageSrc={starwarsPlanets} link="/planets"/>
+                <SeeMoreCard
+                  buttonText="Go to Planets"
+                  title="SEE ALL PLANETS"
+                  imageSrc={starwarsPlanets}
+                  link="/planets"
+                />
               </div>
             </div>
-            <h1 className="home-title home-title-not-first mt-md-5 mb-md-4 mt-sm-4 mb-sm-4 d-flex justify-content-center">VEHICLES</h1>
+            <h1 className="home-title home-title-not-first mt-md-5 mb-md-4 mt-sm-4 mb-sm-4 d-flex justify-content-center">
+              VEHICLES
+            </h1>
             <div className="people-scrollmenu d-flex justify-content-center">
               <div className="scrollmenu col-md-11 col-sm-12 col-lg-11 col-xs-12 mb-4">
-              {store.starwarsVehicles.map((vehicle, index) => (
+                {store.starwarsVehicles.map((vehicle, index) => (
                   <Card
+                  cardType="card-starwars-home"
                     key={vehicle.uid}
                     title={vehicle.name}
                     id={index}
                     buttonText="Details"
                     imageSrc={`https://starwars-visualguide.com/assets/img/vehicles/${store.starwarsVehicles[index].uid}.jpg`}
                   />
-              ))}
-              <SeeMoreCard buttonText="Go to Vehicles" title="SEE ALL VEHICLES" imageSrc={starwarsVehicles} link="/vehicles"/>
+                ))}
+                <SeeMoreCard
+                  buttonText="Go to Vehicles"
+                  title="SEE ALL VEHICLES"
+                  imageSrc={starwarsVehicles}
+                  link="/vehicles"
+                />
               </div>
             </div>
           </>

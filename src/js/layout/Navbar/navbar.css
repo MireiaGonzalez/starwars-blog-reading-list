@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
 nav{
     margin-bottom: 4rem;
+    background-color: #276efde3;
 }
 .navbar-brand{
     font-family: 'Bangers', cursive;
@@ -13,7 +14,13 @@ nav{
 
 .navbar-element{
     margin-right: 5rem;
+    border-radius: 1rem;
+    padding: 0.7rem;
 }
-.navbar-item:hover{
-    background-color: black;
+.navbar-element:hover{
+    background-color: #276efd;
+    border-radius: 1rem;
+}
+.navbar-element:focus{
+    background-color: #276efds;
 }

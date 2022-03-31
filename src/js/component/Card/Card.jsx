@@ -7,7 +7,7 @@ const Card = (props) => {
   const { store, actions } = useContext(Context);
 
   return (
-    <div className="card card-starwars d-inline-block m-3" id={props.id}>
+    <div className={`card d-inline-block m-3 ${props.cardType}`} id={props.id}>
       <img src={props.imageSrc} className="card-img-top" alt=""></img>
       <div className="card-body">
         <h5 className="card-title">{props.title}</h5>
@@ -26,6 +26,7 @@ Card.propTypes = {
   imageSrc: PropTypes.string,
   id: PropTypes.number,
   buttonText: PropTypes.string,
+  cardType: PropTypes.string,
 };
 
 export default Card;
