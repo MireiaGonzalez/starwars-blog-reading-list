@@ -1,10 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bangers&display=swap");
 
-#title-characters{
-    font-family: 'Bangers', cursive;
-    font-size: 5rem;
+#title-characters {
+  font-family: "Bangers", cursive;
+  font-size: 5rem;
 }
 
-#div-separation{
-    width: 0.2rem;
+#div-separation {
+  width: 0.2rem;
+}
+
+#characters-container {
+    margin: auto;
 }

@@ -1,10 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import "./card.css";
-import { Context } from "../../store/appContext.js";
 
 const Card = (props) => {
-  const { store, actions } = useContext(Context);
 
   return (
     <div className={`card d-inline-block m-3 ${props.cardType}`} id={props.id}>

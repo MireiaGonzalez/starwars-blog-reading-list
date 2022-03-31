@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
 nav{
     margin-bottom: 4rem;
-    background-color: #276efde3;
+    background-color: #000000;
 }
 .navbar-brand{
     font-family: 'Bangers', cursive;
     font-size: xx-large;
-    border: 1px solid black;
+    border: 2px solid white;
     border-radius: 3rem;
     background-image: url("https://i.pinimg.com/originals/40/c7/12/40c712e5f3833bc38dbe1213da27069e.jpg");
     margin-right: 3rem;
@@ -18,9 +18,9 @@ nav{
     padding: 0.7rem;
 }
 .navbar-element:hover{
-    background-color: #276efd;
+    background-color: #8a8a8a83;
     border-radius: 1rem;
 }
 .navbar-element:focus{
-    background-color: #276efds;
+    background-color: #8a8a8a83;
 }

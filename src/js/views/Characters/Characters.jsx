@@ -36,13 +36,15 @@ const Characters = () => {
   return (
     <div>
       <h1 className="text-center mb-4" id="title-characters">CHARACTERS</h1>
-      <div className="container-fluid">
+      <div>
+      <div className="container-fluid" id="characters-container">
         {loading ? (
           <Spinner />
         ) : (
           <>
             {store.starwarsPeople.map((char, index) => (
               <Card
+                cardType="col-md-2 col-sm-12"
                 key={char.uid}
                 title={char.name}
                 id={index}
@@ -52,6 +54,8 @@ const Characters = () => {
             ))}
           </>
         )}
+        
+      </div>
       </div>
       <div className="d-flex justify-content-center mt-5">
         <button type="button" className="btn btn-primary">
