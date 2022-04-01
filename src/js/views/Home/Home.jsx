@@ -30,7 +30,8 @@ const Home = () => {
   const getEverything = async () => {
     try {
       setLoading(true);
-      const peopleRes = await getAllPeople(URL);
+      const peopleUrl = URL+"/people";
+      const peopleRes = await getAllPeople(peopleUrl);
       const peopleJson = await peopleRes.json();
       actions.setStarwarsPeople(peopleJson);
       const planetsRes = await getAllPlanets(URL);

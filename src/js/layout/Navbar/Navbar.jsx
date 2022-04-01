@@ -14,7 +14,7 @@ export const Navbar = () => {
             <p className="m-0 p-3">Star Wars</p>
           </div>
         </Link>
-        <button
+        <div
           className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
@@ -35,7 +35,7 @@ export const Navbar = () => {
               <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
             </svg>
           </button>
-        </button>
+        </div>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">

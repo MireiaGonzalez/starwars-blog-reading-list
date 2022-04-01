@@ -13,9 +13,9 @@ const SeeMoreCard = (props) => {
       </div>
       <div className="card-footer d-flex justify-content-center p-3">
         <Link to={props.link}>
-        <a href="#" className="btn btn-primary p-2">
+        <button href="#" className="btn btn-primary p-2">
           {props.buttonText}
-        </a>
+        </button>
         </Link>
       </div>
     </div>
