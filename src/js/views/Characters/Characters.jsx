@@ -3,7 +3,7 @@ import { Context } from "../../store/appContext.js";
 import "./characters.css";
 
 //Service
-import { getAllPeople } from "../../service/starwars";
+import { getAll } from "../../service/starwars";
 
 //Components
 import Card from "../../component/Card/Card.jsx";
@@ -19,7 +19,7 @@ const Characters = () => {
   const getAllCharacters = async (url) => {
     try {
       setLoading(true);
-      const charactersRes = await getAllPeople(url);
+      const charactersRes = await getAll(url);
       const charactersJson = await charactersRes.json();
       actions.setStarwarsPeople(charactersJson);
     } catch (err) {

@@ -8,11 +8,7 @@ import starwarsPlanets from "../../../img/starwars-planets.jpg";
 import starwarsVehicles from "../../../img/starwars-vehicles.jpg";
 
 //Service
-import {
-  getAllPeople,
-  getAllPlanets,
-  getAllVehicles,
-} from "../../service/starwars.js";
+import { getAll } from "../../service/starwars.js";
 
 //Components
 import Card from "../../component/Card/Card.jsx";
@@ -30,16 +26,16 @@ const Home = () => {
   const getEverything = async () => {
     try {
       setLoading(true);
-      const peopleUrl = URL+"/people"
-      const peopleRes = await getAllPeople(peopleUrl);
+      const peopleUrl = URL + "/people";
+      const peopleRes = await getAll(peopleUrl);
       const peopleJson = await peopleRes.json();
       actions.setStarwarsPeople(peopleJson);
-      const planetUrl = URL+"/planets"
-      const planetsRes = await getAllPlanets(planetUrl);
+      const planetUrl = URL + "/planets";
+      const planetsRes = await getAll(planetUrl);
       const planetsJson = await planetsRes.json();
       actions.setStarwarsPlanets(planetsJson);
-      const vehiclesUrl = URL+"/vehicles"
-      const vehiclesRes = await getAllVehicles(vehiclesUrl);
+      const vehiclesUrl = URL + "/vehicles";
+      const vehiclesRes = await getAll(vehiclesUrl);
       const vehiclesJson = await vehiclesRes.json();
       actions.setStarwarsVehicles(vehiclesJson);
     } catch (err) {
@@ -69,7 +65,7 @@ const Home = () => {
               <div className="scrollmenu col-md-11 col-sm-12 col-lg-11 col-xs-12 mb-4">
                 {store.starwarsPeople.map((character, index) => (
                   <Card
-                  cardType="card-starwars-home"
+                    cardType="card-starwars-home"
                     key={character.uid}
                     title={character.name}
                     id={index}
@@ -94,7 +90,7 @@ const Home = () => {
                   if (planet.name !== "Tatooine") {
                     return (
                       <Card
-                      cardType="card-starwars-home"
+                        cardType="card-starwars-home"
                         key={planet.uid}
                         title={planet.name}
                         id={index}
@@ -105,7 +101,7 @@ const Home = () => {
                   } else {
                     return (
                       <Card
-                      cardType="card-starwars-home"
+                        cardType="card-starwars-home"
                         key={planet.uid}
                         title={planet.name}
                         id={index}
@@ -132,7 +128,7 @@ const Home = () => {
               <div className="scrollmenu col-md-11 col-sm-12 col-lg-11 col-xs-12 mb-4">
                 {store.starwarsVehicles.map((vehicle, index) => (
                   <Card
-                  cardType="card-starwars-home"
+                    cardType="card-starwars-home"
                     key={vehicle.uid}
                     title={vehicle.name}
                     id={index}
