@@ -1,6 +1,6 @@
 export const getAllPeople = (url) => {
     const URL = url + "/people";
-    return fetch(URL);
+    return fetch(url);
 }
 
 export const getPeopleInfo = (url, uid) => {
@@ -10,10 +10,10 @@ export const getPeopleInfo = (url, uid) => {
 
 export const getAllPlanets = (url) => {
     const URL = url + "/planets";
-    return fetch(URL);
+    return fetch(url);
 }
 
 export const getAllVehicles = (url) => {
     const URL = url + "/vehicles";
-    return fetch(URL);
+    return fetch(url);
 }

@@ -10,16 +10,16 @@ import Card from "../../component/Card/Card.jsx";
 import Spinner from "../../component/Spinner/Spinner.jsx";
 
 //URL
-const URL = "https://www.swapi.tech/api";
+const peopleURL = "https://www.swapi.tech/api/people";
 
 const Characters = () => {
   const { store, actions } = useContext(Context);
   const [loading, setLoading] = useState(false);
 
-  const getAllCharacters = async () => {
+  const getAllCharacters = async (url) => {
     try {
       setLoading(true);
-      const charactersRes = await getAllPeople(URL);
+      const charactersRes = await getAllPeople(url);
       const charactersJson = await charactersRes.json();
       actions.setStarwarsPeople(charactersJson);
     } catch (err) {
@@ -30,21 +30,10 @@ const Characters = () => {
   };
 
   useEffect(() => {
-    getAllCharacters();
+    getAllCharacters(peopleURL);
   }, []);
 
-  const handlePageCharacters = async (url) => {
-    try {
-      setLoading(true);
-      const nextChar = await getAllPeople(url);
-      const nextCharJson = await nextChar.json();
-      actions.setStarwarsPeople(nextCharJson);
-    } catch (err) {
-      console.log(err);
-    } finally {
-      setLoading(false);
-    }
-  };
+  console.log(store.peoplePreviousPage)
 
   return (
     <div>
@@ -73,7 +62,7 @@ const Characters = () => {
                     {"<<"}
                   </button>
                 ) : (
-                  <button type="button" className="btn btn-primary">
+                  <button type="button" className="btn btn-primary" onClick={() => getAllCharacters(store.peoplePreviousPage)}>
                     {"<<"}
                   </button>
                 )}
@@ -83,7 +72,7 @@ const Characters = () => {
                     {">>"}
                   </button>
                 ) : (
-                  <button type="button" className="btn btn-primary">
+                  <button type="button" className="btn btn-primary" onClick={() => getAllCharacters(store.peopleNextPage)}>
                     {">>"}
                   </button>
                 )}

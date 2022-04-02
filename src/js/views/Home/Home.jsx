@@ -30,14 +30,16 @@ const Home = () => {
   const getEverything = async () => {
     try {
       setLoading(true);
-      const peopleUrl = URL+"/people";
+      const peopleUrl = URL+"/people"
       const peopleRes = await getAllPeople(peopleUrl);
       const peopleJson = await peopleRes.json();
       actions.setStarwarsPeople(peopleJson);
-      const planetsRes = await getAllPlanets(URL);
+      const planetUrl = URL+"/planets"
+      const planetsRes = await getAllPlanets(planetUrl);
       const planetsJson = await planetsRes.json();
       actions.setStarwarsPlanets(planetsJson);
-      const vehiclesRes = await getAllVehicles(URL);
+      const vehiclesUrl = URL+"/vehicles"
+      const vehiclesRes = await getAllVehicles(vehiclesUrl);
       const vehiclesJson = await vehiclesRes.json();
       actions.setStarwarsVehicles(vehiclesJson);
     } catch (err) {
