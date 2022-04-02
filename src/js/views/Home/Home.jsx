@@ -17,6 +17,9 @@ import Spinner from "../../component/Spinner/Spinner.jsx";
 
 //URL
 const URL = "https://www.swapi.tech/api";
+const peopleUrl = URL + "/people";
+const planetUrl = URL + "/planets";
+const vehiclesUrl = URL + "/vehicles";
 
 const Home = () => {
   const { store, actions } = useContext(Context);
@@ -26,15 +29,12 @@ const Home = () => {
   const getEverything = async () => {
     try {
       setLoading(true);
-      const peopleUrl = URL + "/people";
       const peopleRes = await getAll(peopleUrl);
       const peopleJson = await peopleRes.json();
       actions.setStarwarsPeople(peopleJson);
-      const planetUrl = URL + "/planets";
       const planetsRes = await getAll(planetUrl);
       const planetsJson = await planetsRes.json();
       actions.setStarwarsPlanets(planetsJson);
-      const vehiclesUrl = URL + "/vehicles";
       const vehiclesRes = await getAll(vehiclesUrl);
       const vehiclesJson = await vehiclesRes.json();
       actions.setStarwarsVehicles(vehiclesJson);
@@ -69,7 +69,8 @@ const Home = () => {
                     key={character.uid}
                     title={character.name}
                     id={index}
-                    buttonText="Details"
+                    detailsId={character.uid}
+                    detailsType="characters"
                     imageSrc={`https://starwars-visualguide.com/assets/img/characters/${store.starwarsPeople[index].uid}.jpg`}
                   />
                 ))}
@@ -94,7 +95,8 @@ const Home = () => {
                         key={planet.uid}
                         title={planet.name}
                         id={index}
-                        buttonText="Details"
+                        detailsId={planet.uid}
+                        detailsType="planets"
                         imageSrc={`https://starwars-visualguide.com/assets/img/planets/${store.starwarsPlanets[index].uid}.jpg`}
                       />
                     );
@@ -105,7 +107,8 @@ const Home = () => {
                         key={planet.uid}
                         title={planet.name}
                         id={index}
-                        buttonText="Details"
+                        detailsId={planet.uid}
+                        detailsType="planets"
                         imageSrc={
                           "https://upload.wikimedia.org/wikipedia/en/6/6d/Tatooine_%28fictional_desert_planet%29.jpg"
                         }
@@ -132,7 +135,8 @@ const Home = () => {
                     key={vehicle.uid}
                     title={vehicle.name}
                     id={index}
-                    buttonText="Details"
+                    detailsId={vehicle.uid}
+                    detailsType="vehicles"
                     imageSrc={`https://starwars-visualguide.com/assets/img/vehicles/${store.starwarsVehicles[index].uid}.jpg`}
                   />
                 ))}

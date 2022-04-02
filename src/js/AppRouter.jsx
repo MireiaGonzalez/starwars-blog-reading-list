@@ -9,6 +9,9 @@ import Home from "./views/Home/Home.jsx";
 import Characters from "./views/Characters/Characters.jsx";
 import Planets from "./views/Planets/Planets.jsx"
 import Vehicles from "./views/Vehicles/Vehicles.jsx"
+import CharactersDetails from "./views/Details/CharactersDetails.jsx";
+import PlanetsDetails from "./views/Details/PlanetsDetails.jsx";
+import VehiclesDetails from "./views/Details/VehiclesDetails.jsx";
 
 //Layout
 import Layout from "./layout/Layout.jsx";
@@ -36,6 +39,15 @@ const AppRouter = () => {
 							</Route>
 							<Route exact path="/vehicles">
 								<Vehicles />
+							</Route>
+							<Route exact path="/details/characters/:id">
+								<CharactersDetails />
+							</Route>
+							<Route exact path="/details/planets/:id">
+								<PlanetsDetails />
+							</Route>
+							<Route exact path="/details/vehicles/:id">
+								<VehiclesDetails />
 							</Route>
 							<Route>
 								<h1>Not found!</h1>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import "./card.css";
 
@@ -10,9 +11,9 @@ const Card = (props) => {
       <div className="card-body">
         <h5 className="card-title">{props.title}</h5>
         <div className="d-flex justify-content-end">
-          <a href="#" className="btn btn-primary">
-            {props.buttonText}
-          </a>
+          <Link to={`/details/${props.detailsType}/${props.detailsId}`} className="btn btn-primary">
+            Details
+          </Link>
         </div>
       </div>
     </div>
@@ -25,6 +26,8 @@ Card.propTypes = {
   id: PropTypes.number,
   buttonText: PropTypes.string,
   cardType: PropTypes.string,
+  detailsType: PropTypes.string,
+  detailsId: PropTypes.string,
 };
 
 export default Card;

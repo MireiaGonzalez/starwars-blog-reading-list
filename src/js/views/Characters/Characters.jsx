@@ -52,7 +52,8 @@ const Characters = () => {
                   key={char.uid}
                   title={char.name}
                   id={index}
-                  buttonText="Details"
+                  detailsId={character.uid}
+                  detailsType="characters"
                   imageSrc={`https://starwars-visualguide.com/assets/img/characters/${store.starwarsPeople[index].uid}.jpg`}
                 />
               ))}

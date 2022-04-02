@@ -3,5 +3,5 @@ export const getAll = (url) => {
 }
 
 export const getInfo = (url, uid) => {
-    return fetch(`${url}${uid}`);
+    return fetch(`${url}/${uid}`);
 }

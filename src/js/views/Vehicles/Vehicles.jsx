@@ -50,7 +50,8 @@ const Vehicles = () => {
                   key={planet.uid}
                   title={planet.name}
                   id={index}
-                  buttonText="Details"
+                  detailsId={vehicle.uid}
+                  detailsType="vehicles"
                   imageSrc={`https://starwars-visualguide.com/assets/img/vehicles/${store.starwarsVehicles[index].uid}.jpg`}
                 />
               ))}
@@ -60,7 +61,11 @@ const Vehicles = () => {
                     {"<<"}
                   </button>
                 ) : (
-                  <button type="button" className="btn btn-primary" onClick={() => getAllVehicles(store.vehiclesPreviousPage)}>
+                  <button
+                    type="button"
+                    className="btn btn-primary"
+                    onClick={() => getAllVehicles(store.vehiclesPreviousPage)}
+                  >
                     {"<<"}
                   </button>
                 )}
@@ -70,7 +75,11 @@ const Vehicles = () => {
                     {">>"}
                   </button>
                 ) : (
-                  <button type="button" className="btn btn-primary" onClick={() => getAllVehicles(store.vehiclesNextPage)}>
+                  <button
+                    type="button"
+                    className="btn btn-primary"
+                    onClick={() => getAllVehicles(store.vehiclesNextPage)}
+                  >
                     {">>"}
                   </button>
                 )}

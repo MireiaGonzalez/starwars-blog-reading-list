@@ -1,0 +1,12 @@
+.details-character{
+    border: 2px solid black;
+    padding: 4rem;
+}
+
+.details-container{
+    flex-wrap: wrap;
+}
+
+.details-character-image{
+    margin-bottom: 3rem;
+}

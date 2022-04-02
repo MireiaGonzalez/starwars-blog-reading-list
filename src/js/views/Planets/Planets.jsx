@@ -33,7 +33,7 @@ const Planets = () => {
     getAllPlanets(planetsURL);
   }, []);
 
-  console.log(store.starwarsPlanets)
+  console.log(store.starwarsPlanets);
 
   return (
     <div>
@@ -52,7 +52,8 @@ const Planets = () => {
                   key={planet.uid}
                   title={planet.name}
                   id={index}
-                  buttonText="Details"
+                  detailsId={planet.uid}
+                  detailsType="planets"
                   imageSrc={`https://starwars-visualguide.com/assets/img/planets/${store.starwarsPlanets[index].uid}.jpg`}
                 />
               ))}
@@ -62,7 +63,11 @@ const Planets = () => {
                     {"<<"}
                   </button>
                 ) : (
-                  <button type="button" className="btn btn-primary" onClick={() => getAllPlanets(store.planetsPreviousPage)}>
+                  <button
+                    type="button"
+                    className="btn btn-primary"
+                    onClick={() => getAllPlanets(store.planetsPreviousPage)}
+                  >
                     {"<<"}
                   </button>
                 )}
@@ -72,7 +77,11 @@ const Planets = () => {
                     {">>"}
                   </button>
                 ) : (
-                  <button type="button" className="btn btn-primary" onClick={() => getAllPlanets(store.planetsNextPage)}>
+                  <button
+                    type="button"
+                    className="btn btn-primary"
+                    onClick={() => getAllPlanets(store.planetsNextPage)}
+                  >
                     {">>"}
                   </button>
                 )}
