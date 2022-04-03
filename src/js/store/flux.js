@@ -27,6 +27,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 			setStarwarsPlanets: (planetsData) => {
 				setStore({starwarsPlanets: planetsData.results, planetsNextPage: planetsData.next, planetsPreviousPage: planetsData.previous})
 			},
+
+			setStarwarsPlanetsDetails: (planetsDetails) => {
+				setStore({planetsInfo: planetsDetails})
+			},
+
 			setStarwarsVehicles: (vehiclesData) => {
 				setStore({starwarsVehicles: vehiclesData.results, vehiclesNextPage: vehiclesData.next, vehiclesPreviousPage: vehiclesData.previous})
 			}

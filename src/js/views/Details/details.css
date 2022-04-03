@@ -1,4 +1,13 @@
-.details-character{
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
+@media only screen and (min-width: 992px) {
+    .separation-details{
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+}
+
+.details-box{
     border: 2px solid black;
     padding: 4rem;
 }
@@ -9,4 +18,9 @@
 
 .details-character-image{
     margin-bottom: 3rem;
+}
+
+.character-name{
+    font-family: 'Bangers', cursive;
+    font-size:4rem;
 }
