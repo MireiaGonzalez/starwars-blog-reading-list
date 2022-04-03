@@ -68,14 +68,14 @@ export const Navbar = () => {
             </li>
             <li className="nav-item dropdown">
               <a
-                className="nav-link dropdown-toggle"
+                className="nav-link dropdown-toggle btn btn-primary text-white"
                 href="#"
                 id="navbarDropdown"
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                Dropdown
+                Favourites
               </a>
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
