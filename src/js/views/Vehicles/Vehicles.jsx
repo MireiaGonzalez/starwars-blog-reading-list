@@ -44,11 +44,11 @@ const Vehicles = () => {
               <h1 className="text-center mb-4" id="title-vehicles">
                 VEHICLES
               </h1>
-              {store.starwarsVehicles.map((planet, index) => (
+              {store.starwarsVehicles.map((vehicle, index) => (
                 <Card
                   cardType="col-md-2 col-sm-12"
-                  key={planet.uid}
-                  title={planet.name}
+                  key={vehicle.uid}
+                  title={vehicle.name}
                   id={index}
                   detailsId={vehicle.uid}
                   detailsType="vehicles"

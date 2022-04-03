@@ -4,7 +4,7 @@ import { Context } from "../../store/appContext.js";
 import "./details.css";
 
 //Service
-import { getInfo, getAll } from "../../service/starwars";
+import { getInfo } from "../../service/starwars";
 
 //Components
 import Spinner from "../../component/Spinner/Spinner.jsx";
@@ -34,7 +34,6 @@ const PlanetsDetails = () => {
     getPlanetsDetails(planetsURL);
   }, [])
 
-  console.log(store.planetsInfo);
   return (
     <>
     {loading ? (
@@ -42,10 +41,10 @@ const PlanetsDetails = () => {
     ) : (
       <>
         <div className="d-flex justify-content-center">
-          <h1 className="character-name">{store.planetsInfo.name}</h1>
+          <h1 className="title-name">{store.planetsInfo.name}</h1>
         </div>
         <div className="d-flex justify-content-center align-items-center mt-5 details-container">
-          <div className="details-character-image">
+          <div className="details-image">
             <img
               src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`}
               alt={`There isn't an image of ${store.planetsInfo.name}`}
@@ -54,14 +53,14 @@ const PlanetsDetails = () => {
           <div className="separation-details"></div>
           <div>
             <div className="details-box">
-              <p>{`climate: ${store.planetsInfo.climate}`}</p>
-              <p>{`diameter: ${store.planetsInfo.diameter}`}</p>
-              <p>{`gravity: ${store.planetsInfo.gravity}`}</p>
-              <p>{`orbital_period: ${store.planetsInfo.orbital_period}`}</p>
-              <p>{`population: ${store.planetsInfo.population}`}</p>
-              <p>{`rotation_period: ${store.planetsInfo.rotation_period}`}</p>
-              <p>{`surface_water: ${store.planetsInfo.surface_water}`}</p>
-              <p>{`terrain: ${store.planetsInfo.terrain}`}</p>
+              <p>{`Climate: ${store.planetsInfo.climate}`}</p>
+              <p>{`Diameter: ${store.planetsInfo.diameter}`}</p>
+              <p>{`Gravity: ${store.planetsInfo.gravity}`}</p>
+              <p>{`Orbital_period: ${store.planetsInfo.orbital_period}`}</p>
+              <p>{`Population: ${store.planetsInfo.population}`}</p>
+              <p>{`Rotation_period: ${store.planetsInfo.rotation_period}`}</p>
+              <p>{`Surface_water: ${store.planetsInfo.surface_water}`}</p>
+              <p>{`Terrain: ${store.planetsInfo.terrain}`}</p>
             </div>
           </div>
         </div>

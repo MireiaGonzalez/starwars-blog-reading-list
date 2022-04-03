@@ -34,7 +34,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			setStarwarsVehicles: (vehiclesData) => {
 				setStore({starwarsVehicles: vehiclesData.results, vehiclesNextPage: vehiclesData.next, vehiclesPreviousPage: vehiclesData.previous})
-			}
+			},
+
+			setStarwarsVehiclesDetails: (vehiclesDetails) => {
+				setStore({vehiclesInfo: vehiclesDetails})
+			},
 		}
 	};
 };

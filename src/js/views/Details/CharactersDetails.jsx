@@ -49,14 +49,13 @@ const CharactersDetails = () => {
       ) : (
         <>
           <div className="d-flex justify-content-center">
-            <h1 className="character-name">{store.characterInfo.name}</h1>
+            <h1 className="title-name">{store.characterInfo.name}</h1>
           </div>
           <div className="d-flex justify-content-center align-items-center mt-5 details-container">
-            <div className="details-character-image">
+            <div className="details-image">
               <img
                 src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`}
                 alt=""
-                className="characters-image"
               />
             </div>
             <div className="separation-details"></div>
