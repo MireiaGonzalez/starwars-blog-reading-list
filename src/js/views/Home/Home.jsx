@@ -23,7 +23,6 @@ const vehiclesUrl = URL + "/vehicles";
 
 const Home = () => {
   const { store, actions } = useContext(Context);
-
   const [loading, setLoading] = useState(false);
 
   const getEverything = async () => {
@@ -45,6 +44,7 @@ const Home = () => {
     }
   };
 
+  
   useEffect(() => {
     getEverything();
   }, []);
@@ -71,6 +71,14 @@ const Home = () => {
                     id={index}
                     detailsId={character.uid}
                     detailsType="characters"
+                    onClickFunction={() => {
+                      if(store.favourites.includes(character) === true){
+                        console.log('here it is')
+                      }else{
+                        actions.setFavourites(character)
+                        console.log('not here')
+                      }
+                    }}
                     imageSrc={`https://starwars-visualguide.com/assets/img/characters/${store.starwarsPeople[index].uid}.jpg`}
                   />
                 ))}

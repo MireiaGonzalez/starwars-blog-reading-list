@@ -12,7 +12,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			starwarsVehicles: [],
 			vehiclesNextPage: "",
 			vehiclesPreviousPage: "",
-			vehiclesInfo: []
+			vehiclesInfo: [],
+			favourites: []
 
 		},
 		actions: {
@@ -39,6 +40,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 			setStarwarsVehiclesDetails: (vehiclesDetails) => {
 				setStore({vehiclesInfo: vehiclesDetails})
 			},
+
+			setFavourites: (data) => {
+				setStore({favourites: getStore().favourites.concat(data.results)})
+			}
 		}
 	};
 };
