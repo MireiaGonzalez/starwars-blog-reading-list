@@ -42,7 +42,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			setFavourites: (data) => {
-				setStore({favourites: getStore().favourites.concat(data.results)})
+					setStore({favourites: getStore().favourites.concat(data)})
+			},
+
+			deleteFavourite: (id) => {
+				const filteredArray = getStore().favourites.filter(x => x.uid !== id);
+				setStore({favourites: filteredArray})
 			}
 		}
 	};

@@ -5,7 +5,7 @@ import "./navbar.css";
 
 export const Navbar = () => {
   const { store, actions } = useContext(Context);
-
+  console.log(store.favourites)
   return (
     <nav className="navbar navbar-expand-lg">
       <div className="container-fluid">
@@ -84,9 +84,9 @@ export const Navbar = () => {
                 {store.favourites.length > 0 ? (
                   <>
                     {store.favourites.map((item, index) => (
-                      <li key={index}>
-                        <Link to={`/`}>{item.name}</Link>
-                        <div className="d-flex justify-content-end">
+                      <li key={index} className="d-flex jalign-items-center ms-2">
+                        <Link to={`/details/characters/${item.uid}`}>{item.name}</Link>
+                        <div className="d-flex justify-content-end align-items-center ms-2" onClick={() => actions.deleteFavourite(item.uid)}>
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="16"
