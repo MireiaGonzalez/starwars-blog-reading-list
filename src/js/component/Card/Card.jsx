@@ -38,7 +38,7 @@ Card.propTypes = {
   detailsType: PropTypes.string,
   detailsId: PropTypes.string,
   onClickFunction: PropTypes.func,
-  icon: PropTypes.node,
+  icon: PropTypes.func,
 };
 
 export default Card;

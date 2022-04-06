@@ -5,7 +5,7 @@ import "./navbar.css";
 
 export const Navbar = () => {
   const { store, actions } = useContext(Context);
-  console.log(store.favourites)
+  console.log(store.favourites);
   return (
     <nav className="navbar navbar-expand-lg">
       <div className="container-fluid">
@@ -83,23 +83,41 @@ export const Navbar = () => {
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                 {store.favourites.length > 0 ? (
                   <>
-                    {store.favourites.map((item, index) => (
-                      <li key={index} className="d-flex jalign-items-center ms-2">
-                        <Link to={`/details/characters/${item.uid}`}>{item.name}</Link>
-                        <div className="d-flex justify-content-end align-items-center ms-2" onClick={() => actions.deleteFavourite(item.uid)}>
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="16"
-                            height="16"
-                            fill="currentColor"
-                            className="bi bi-trash-fill"
-                            viewBox="0 0 16 16"
+                    {store.favourites.map((item, index) => {
+                      let type = "";
+                      if (item.url.includes("people") === true) {
+                        type = "characters";
+                      } else if (item.url.includes("planets") === true) {
+                        type = "planets";
+                      } else {
+                        type = "vehicles";
+                      }
+                      return (
+                        <li
+                          key={index}
+                          className="d-flex jalign-items-center ms-2"
+                        >
+                          <Link to={`/details/${type}/${item.uid}`}>
+                            {item.name}
+                          </Link>
+                          <div
+                            className="d-flex justify-content-end align-items-center ms-2"
+                            onClick={() => actions.deleteFavourite(item.uid)}
                           >
-                            <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" />
-                          </svg>
-                        </div>
-                      </li>
-                    ))}
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="16"
+                              height="16"
+                              fill="currentColor"
+                              className="bi bi-trash-fill"
+                              viewBox="0 0 16 16"
+                            >
+                              <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" />
+                            </svg>
+                          </div>
+                        </li>
+                      );
+                    })}
                   </>
                 ) : (
                   <div className="d-flex justify-content-center">(empty)</div>
