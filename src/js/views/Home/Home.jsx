@@ -50,6 +50,7 @@ const Home = () => {
     getEverything();
   }, []);
 
+
   console.log(store.starwarsVehicles);
   return (
     <div className="container-fluid wrapper">
@@ -64,8 +65,10 @@ const Home = () => {
 
             <div className="people-scrollmenu d-flex justify-content-center">
               <div className="scrollmenu col-md-11 col-sm-12 col-lg-11 col-xs-12 mb-4">
-                {store.starwarsPeople.map((character, index) => (
-                  <Card
+                {store.starwarsPeople.map((character, index) => {   
+                  if(store.favourites.includes(character) === true){
+                    return (
+                      <Card
                     cardType="card-starwars-home"
                     key={character.uid}
                     title={character.name}
@@ -77,18 +80,36 @@ const Home = () => {
                         actions.deleteFavourite(character.uid);
                       } else {
                         actions.setFavourites(character);
-                        console.log(character);
-                        console.log("not here");
                       }
                     }}
-                    icon={store.favourites.includes(character) ? (
-                      <FilledHeart />
-                    ) : (
-                      <EmptyHeart />
-                    )}
+                    icon={<FilledHeart />}
                     imageSrc={`https://starwars-visualguide.com/assets/img/characters/${store.starwarsPeople[index].uid}.jpg`}
-                  />
-                ))}
+                    />
+                    )
+                  }else{
+                    return (
+
+                      <Card
+                        cardType="card-starwars-home"
+                        key={character.uid}
+                        title={character.name}
+                        id={index}
+                        detailsId={character.uid}
+                        detailsType="characters"
+                        onClickFunction={() => {
+                          if (store.favourites.includes(character) === true) {
+                            actions.deleteFavourite(character.uid);
+                          } else {
+                            actions.setFavourites(character);
+                          }
+                        }}
+                        icon={<EmptyHeart />}
+                        imageSrc={`https://starwars-visualguide.com/assets/img/characters/${store.starwarsPeople[index].uid}.jpg`}
+                        />
+                    )
+                  }            
+                    
+                  })}
                 <SeeMoreCard
                   buttonText="Go to Characters"
                   title="SEE ALL CHARACTERS"
