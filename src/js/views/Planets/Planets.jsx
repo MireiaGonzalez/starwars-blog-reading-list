@@ -8,6 +8,7 @@ import { getAll } from "../../service/starwars";
 //Components
 import Card from "../../component/Card/Card.jsx";
 import Spinner from "../../component/Spinner/Spinner.jsx";
+import HeartIcon from "../../component/HeartIcon/HeartIcon.jsx";
 
 //URL
 const planetsURL = "https://www.swapi.tech/api/planets";
@@ -54,6 +55,14 @@ const Planets = () => {
                   id={index}
                   detailsId={planet.uid}
                   detailsType="planets"
+                  onClickFunction={() => {
+                    if (store.favourites.includes(planet) === true) {
+                      actions.deleteFavourite(planet.uid);
+                    } else {
+                      actions.setFavourites(planet);
+                    }
+                  }}
+                  icon={<HeartIcon />}
                   imageSrc={`https://starwars-visualguide.com/assets/img/planets/${store.starwarsPlanets[index].uid}.jpg`}
                 />
               ))}

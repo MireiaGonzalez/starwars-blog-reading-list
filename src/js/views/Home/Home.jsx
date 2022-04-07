@@ -14,8 +14,7 @@ import { getAll } from "../../service/starwars.js";
 import Card from "../../component/Card/Card.jsx";
 import SeeMoreCard from "../../component/SeeMoreCard/SeeMoreCard.jsx";
 import Spinner from "../../component/Spinner/Spinner.jsx";
-import FilledHeart from "../../component/FilledHeart/FilledHeart.jsx";
-import EmptyHeart from "../../component/EmptyHeart/EmptyHeart.jsx";
+import HeartIcon from "../../component/HeartIcon/HeartIcon.jsx";
 
 //URL
 const URL = "https://www.swapi.tech/api";
@@ -50,7 +49,6 @@ const Home = () => {
     getEverything();
   }, []);
 
-
   console.log(store.starwarsVehicles);
   return (
     <div className="container-fluid wrapper">
@@ -65,10 +63,8 @@ const Home = () => {
 
             <div className="people-scrollmenu d-flex justify-content-center">
               <div className="scrollmenu col-md-11 col-sm-12 col-lg-11 col-xs-12 mb-4">
-                {store.starwarsPeople.map((character, index) => {   
-                  if(store.favourites.includes(character) === true){
-                    return (
-                      <Card
+                {store.starwarsPeople.map((character, index) => (
+                  <Card
                     cardType="card-starwars-home"
                     key={character.uid}
                     title={character.name}
@@ -82,34 +78,10 @@ const Home = () => {
                         actions.setFavourites(character);
                       }
                     }}
-                    icon={<FilledHeart />}
+                    icon={<HeartIcon />}
                     imageSrc={`https://starwars-visualguide.com/assets/img/characters/${store.starwarsPeople[index].uid}.jpg`}
-                    />
-                    )
-                  }else{
-                    return (
-
-                      <Card
-                        cardType="card-starwars-home"
-                        key={character.uid}
-                        title={character.name}
-                        id={index}
-                        detailsId={character.uid}
-                        detailsType="characters"
-                        onClickFunction={() => {
-                          if (store.favourites.includes(character) === true) {
-                            actions.deleteFavourite(character.uid);
-                          } else {
-                            actions.setFavourites(character);
-                          }
-                        }}
-                        icon={<EmptyHeart />}
-                        imageSrc={`https://starwars-visualguide.com/assets/img/characters/${store.starwarsPeople[index].uid}.jpg`}
-                        />
-                    )
-                  }            
-                    
-                  })}
+                  />
+                ))}
                 <SeeMoreCard
                   buttonText="Go to Characters"
                   title="SEE ALL CHARACTERS"
@@ -133,6 +105,14 @@ const Home = () => {
                         id={index}
                         detailsId={planet.uid}
                         detailsType="planets"
+                        onClickFunction={() => {
+                          if (store.favourites.includes(planet) === true) {
+                            actions.deleteFavourite(planet.uid);
+                          } else {
+                            actions.setFavourites(planet);
+                          }
+                        }}
+                        icon={<HeartIcon />}
                         imageSrc={`https://starwars-visualguide.com/assets/img/planets/${store.starwarsPlanets[index].uid}.jpg`}
                       />
                     );
@@ -145,6 +125,14 @@ const Home = () => {
                         id={index}
                         detailsId={planet.uid}
                         detailsType="planets"
+                        onClickFunction={() => {
+                          if (store.favourites.includes(planet) === true) {
+                            actions.deleteFavourite(planet.uid);
+                          } else {
+                            actions.setFavourites(planet);
+                          }
+                        }}
+                        icon={<HeartIcon />}
                         imageSrc={
                           "https://upload.wikimedia.org/wikipedia/en/6/6d/Tatooine_%28fictional_desert_planet%29.jpg"
                         }
@@ -173,6 +161,14 @@ const Home = () => {
                     id={index}
                     detailsId={vehicle.uid}
                     detailsType="vehicles"
+                    onClickFunction={() => {
+                      if (store.favourites.includes(vehicle) === true) {
+                        actions.deleteFavourite(vehicle.uid);
+                      } else {
+                        actions.setFavourites(vehicle);
+                      }
+                    }}
+                    icon={<HeartIcon />}
                     imageSrc={`https://starwars-visualguide.com/assets/img/vehicles/${store.starwarsVehicles[index].uid}.jpg`}
                   />
                 ))}

@@ -10,8 +10,19 @@ const Card = (props) => {
       <div className="card-body">
         <h5 className="card-title">{props.title}</h5>
         <div className="d-flex justify-content-end mt-3">
-          {props.heartButton}
-          {props.detailsButton}
+        <button
+            type="button"
+            className="btn btn-danger me-2"
+            onClick={props.onClickFunction}
+          >
+            <div>{props.icon}</div>
+          </button>
+          <Link
+            to={`/details/${props.detailsType}/${props.detailsId}`}
+            className="btn btn-primary"
+          >
+            Details
+          </Link>
         </div>
       </div>
     </div>

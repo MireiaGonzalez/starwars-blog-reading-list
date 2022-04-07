@@ -8,6 +8,7 @@ import { getAll } from "../../service/starwars";
 //Components
 import Card from "../../component/Card/Card.jsx";
 import Spinner from "../../component/Spinner/Spinner.jsx";
+import HeartIcon from "../../component/HeartIcon/HeartIcon.jsx";
 
 //URL
 const vechiclesURL = "https://www.swapi.tech/api/vehicles";
@@ -52,6 +53,14 @@ const Vehicles = () => {
                   id={index}
                   detailsId={vehicle.uid}
                   detailsType="vehicles"
+                  onClickFunction={() => {
+                    if (store.favourites.includes(vehicle) === true) {
+                      actions.deleteFavourite(vehicle.uid);
+                    } else {
+                      actions.setFavourites(vehicle);
+                    }
+                  }}
+                  icon={<HeartIcon />}
                   imageSrc={`https://starwars-visualguide.com/assets/img/vehicles/${store.starwarsVehicles[index].uid}.jpg`}
                 />
               ))}

@@ -8,6 +8,7 @@ import { getAll } from "../../service/starwars";
 //Components
 import Card from "../../component/Card/Card.jsx";
 import Spinner from "../../component/Spinner/Spinner.jsx";
+import HeartIcon from "../../component/HeartIcon/HeartIcon.jsx";
 
 //URL
 const peopleURL = "https://www.swapi.tech/api/people";
@@ -54,6 +55,14 @@ const Characters = () => {
                   id={index}
                   detailsId={char.uid}
                   detailsType="characters"
+                  onClickFunction={() => {
+                    if (store.favourites.includes(char) === true) {
+                      actions.deleteFavourite(char.uid);
+                    } else {
+                      actions.setFavourites(char);
+                    }
+                  }}
+                  icon={<HeartIcon />}
                   imageSrc={`https://starwars-visualguide.com/assets/img/characters/${store.starwarsPeople[index].uid}.jpg`}
                 />
               ))}
